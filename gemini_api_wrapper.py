@@ -17,13 +17,24 @@ Usage:
     # Use wrapper methods to make API calls with proper argument formatting
 """
 
-import google.generativeai as genai
 import json
 import os
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional, Union, List
 import traceback
+
+# Try to import the Google Generative AI package
+try:
+    import google.genai as genai
+    GENAI_AVAILABLE = True
+except ImportError:
+    try:
+        import google.generativeai as genai
+        GENAI_AVAILABLE = True
+    except ImportError:
+        genai = None
+        GENAI_AVAILABLE = False
 
 
 class GeminiAPIWrapper:
@@ -349,3 +360,4 @@ if __name__ == "__main__":
     
     print("\n" + "=" * 50)
     print("Test completed. Check the output above for results.")
+
