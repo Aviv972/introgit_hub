@@ -1,0 +1,90 @@
+{
+  "imports": {
+    "os": {
+      "status": "success",
+      "version": "unknown"
+    },
+    "sys": {
+      "status": "success",
+      "version": "unknown"
+    },
+    "pathlib": {
+      "status": "success",
+      "version": "unknown"
+    },
+    "numpy": {
+      "status": "success",
+      "version": "2.2.6"
+    },
+    "matplotlib": {
+      "status": "partial",
+      "error": "module 'matplotlib' has no attribute 'pyplot'"
+    },
+    "PIL": {
+      "status": "success",
+      "version": "11.2.1"
+    },
+    "requests": {
+      "status": "success",
+      "version": "2.32.3"
+    },
+    "vision_agent": {
+      "status": "failed",
+      "error": "libGL.so.1: cannot open shared object file: No such file or directory"
+    },
+    "vision_agent.agent": {
+      "status": "failed",
+      "error": "libGL.so.1: cannot open shared object file: No such file or directory"
+    },
+    "vision_agent.models": {
+      "status": "success",
+      "version": "unknown"
+    },
+    "vision_agent.tools": {
+      "status": "failed",
+      "error": "libGL.so.1: cannot open shared object file: No such file or directory"
+    },
+    "VisionAgentCoderV2": {
+      "status": "failed",
+      "error": "libGL.so.1: cannot open shared object file: No such file or directory"
+    },
+    "AgentMessage": {
+      "status": "success"
+    }
+  },
+  "api_keys": {
+    "VISION_AGENT_API_KEY": {
+      "status": "missing"
+    },
+    "ANTHROPIC_API_KEY": {
+      "status": "missing"
+    },
+    "GOOGLE_API_KEY": {
+      "status": "missing"
+    },
+    "env_file": {
+      "status": "found",
+      "path": "/home/daytona/introgit_hub/.env"
+    }
+  },
+  "functionality": {
+    "mock_tests": {
+      "successful": 1,
+      "total": 3,
+      "success_rate": 0.3333333333333333
+    },
+    "sample_files": {
+      "found": 6,
+      "total": 6
+    },
+    "integration_test": {
+      "status": "success"
+    }
+  },
+  "environment": {
+    "python_version": "3.13.3",
+    "platform": "Linux 6.8.0-63-generic",
+    "working_directory": "/home/daytona/introgit_hub"
+  },
+  "overall_status": "needs_setup"
+}
