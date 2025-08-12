@@ -56,9 +56,19 @@ class GeminiAPIWrapper:
         self.logger = self._setup_logging(verbose)
         self.api_key = api_key or os.getenv('GOOGLE_API_KEY')
         
-        if self.api_key:
-            genai.configure(api_key=self.api_key)
-            self.logger.info("Gemini API configured successfully")
+        if not GENAI_AVAILABLE:
+            self.logger.warning("Google Generative AI package not available. API calls will be mocked.")
+        elif self.api_key:
+            try:
+                # Configure the API key based on the available package
+                if hasattr(genai, 'configure'):
+                    genai.configure(api_key=self.api_key)
+                else:
+                    # For google.genai package, we might need a different configuration method
+                    self.client = genai.Client(api_key=self.api_key)
+                self.logger.info("Gemini API configured successfully")
+            except Exception as e:
+                self.logger.error(f"Failed to configure Gemini API: {e}")
         else:
             self.logger.warning("No Google API key provided. API calls will fail.")
     
@@ -360,4 +370,5 @@ if __name__ == "__main__":
     
     print("\n" + "=" * 50)
     print("Test completed. Check the output above for results.")
+
 
