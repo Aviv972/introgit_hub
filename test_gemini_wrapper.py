@@ -461,12 +461,13 @@ def run_comprehensive_tests():
     print("🚀 Starting Comprehensive Gemini API Wrapper Tests")
     print("=" * 60)
     
-    # Create test suite
+    # Create test suite using the modern approach
+    loader = unittest.TestLoader()
     test_suite = unittest.TestSuite()
     
     # Add test cases
-    test_suite.addTest(unittest.makeSuite(TestGeminiAPIWrapper))
-    test_suite.addTest(unittest.makeSuite(TestEdgeCasesAndPerformance))
+    test_suite.addTests(loader.loadTestsFromTestCase(TestGeminiAPIWrapper))
+    test_suite.addTests(loader.loadTestsFromTestCase(TestEdgeCasesAndPerformance))
     
     # Run tests with detailed output
     runner = unittest.TextTestRunner(verbosity=2, stream=sys.stdout)
@@ -558,3 +559,4 @@ if __name__ == "__main__":
     else:
         print("\n⚠️  Some tests failed. Please review the output above.")
         sys.exit(1)
+
