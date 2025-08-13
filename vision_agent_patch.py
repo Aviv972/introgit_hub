@@ -8,7 +8,8 @@ with the Vision Agent library. It intercepts Gemini API calls from Vision Agent 
 routes them through our wrapper to fix the protobuf structure validation issue.
 
 The patch addresses the specific error:
-"Invalid value at 'contents[1].parts[1].function_call.args' (type.googleapis.com/google.protobuf.Struct)"
+""Invalid value at 'contents[1].parts[1].function_call.args' "
+"(type.googleapis.com/google.protobuf.Struct)""
 
 Usage:
     # Apply the patch before using Vision Agent
@@ -502,3 +503,4 @@ if __name__ == "__main__":
     print()
 
     test_patch_functionality()
+
