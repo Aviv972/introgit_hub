@@ -57,7 +57,9 @@ class GeminiAPIWrapper:
         self.api_key = api_key or os.getenv('GOOGLE_API_KEY')
 
         if not GENAI_AVAILABLE:
-            self.logger.warning("Google Generative AI package not available. API calls will be mocked.")
+            self.logger.warning(
+                "Google Generative AI package not available. API calls will be mocked."
+            )
         elif self.api_key:
             try:
                 # Configure the API key based on the available package
@@ -391,6 +393,7 @@ if __name__ == "__main__":
 
     print("\n" + "=" * 50)
     print("Test completed. Check the output above for results.")
+
 
 
 
