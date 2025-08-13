@@ -211,7 +211,9 @@ class GeminiAPIWrapper:
 
         return compatible_args
 
-    def create_function_call_part(self, function_name: str, args: Union[str, Dict[str, Any]]) -> Dict[str, Any]:
+    def create_function_call_part(
+        self, function_name: str, args: Union[str, Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Create a properly formatted function call part for Gemini API.
 
@@ -395,6 +397,7 @@ if __name__ == "__main__":
 
     print("\n" + "=" * 50)
     print("Test completed. Check the output above for results.")
+
 
 
 
