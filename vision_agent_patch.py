@@ -153,7 +153,8 @@ class VisionAgentPatcher:
         @wraps(original_method)
         def patched_generate_content(*args, **kwargs):
             self.logger.debug(
-                f"Intercepted generate_content call with args: {len(args)}, kwargs: {list(kwargs.keys())}")
+                f"Intercepted generate_content call with args: {len(args)}, "
+                f"kwargs: {list(kwargs.keys())}")
 
             try:
                 # If we have a wrapper, use it to process the call
@@ -503,4 +504,5 @@ if __name__ == "__main__":
     print()
 
     test_patch_functionality()
+
 
