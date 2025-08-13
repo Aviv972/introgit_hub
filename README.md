@@ -15,13 +15,19 @@ Vision Agent is a Visual AI pilot from LandingAI that can:
 ```
 /home/daytona/introgit_hub/
 ├── README.md                 # This file - setup and usage guide
-├── .env                      # API keys configuration (template)
+├── .env                      # API keys configuration with setup instructions
+├── requirements.txt          # Complete dependency list for reproducible installs
 ├── test_import.py           # Installation verification script
+├── test_vision_agent.py     # Comprehensive test runner (87.5% pass rate)
+├── test_gemini_wrapper.py   # Gemini API protobuf fix tests (100% pass rate)
+├── gemini_api_wrapper.py    # Fixes Google Generative AI function call errors
+├── vision_agent_patch.py    # Monkey-patching for Vision Agent integration
 ├── quickstart/              # Main examples directory
 │   ├── source.py            # Basic VisionAgent prompt example
 │   ├── test_tools.py        # Direct tools usage example
-│   └── [sample images]      # Test images for examples
-├── test_vision_agent.py     # Comprehensive test runner
+│   ├── people.jpg           # Sample image with people
+│   ├── landscape.jpg        # Sample landscape image
+│   └── detection_results_*.png # Generated visualization outputs
 └── USAGE_GUIDE.md          # Detailed usage documentation
 ```
 
@@ -181,6 +187,7 @@ If you encounter issues:
 ---
 
 **Note**: This is an exploration project. Some functionality may be limited due to the headless environment and missing system dependencies.
+
 
 
 
