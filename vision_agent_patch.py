@@ -183,7 +183,9 @@ class VisionAgentPatcher:
 
         return patched_generate_content
 
-    def _process_contents_for_function_calls(self, contents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def _process_contents_for_function_calls(
+        self, contents: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """
         Process contents to fix function call arguments using our wrapper.
 
@@ -504,5 +506,6 @@ if __name__ == "__main__":
     print()
 
     test_patch_functionality()
+
 
 
