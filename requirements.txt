@@ -1,0 +1,67 @@
+# Vision Agent Project - Dependencies
+# ===================================
+# 
+# This file lists all the dependencies required for the Vision Agent project.
+# Install all dependencies with: pip install -r requirements.txt
+#
+# Note: Some packages may have version conflicts. If you encounter issues,
+# try installing vision-agent first with --no-deps, then install other packages.
+
+# Core Vision Agent Library
+vision-agent>=1.1.19
+
+# AI/ML Service APIs
+google-genai>=1.17.0
+anthropic>=0.52.1
+
+# Core Scientific Computing
+matplotlib>=3.10.0
+numpy>=2.2.0
+scipy>=1.15.0
+
+# Image Processing
+Pillow>=11.0.0
+pillow-heif>=0.16.0
+
+# Environment and Configuration
+python-dotenv>=1.0.0
+
+# Jupyter and Notebook Support
+nbformat>=5.10.0
+nbclient>=0.10.0
+ipykernel>=6.29.0
+
+# Video Processing
+av>=11.0.0,<12.0.0
+
+# Code Analysis and Formatting
+libcst>=1.5.0
+flake8>=7.0.0
+
+# HTTP Client
+httpx>=0.27.0,<0.28.0
+
+# Document Processing
+pymupdf>=1.23.0,<2.0.0
+
+# Data Presentation
+tabulate>=0.9.0,<0.10.0
+
+# Media Download (for examples)
+yt-dlp>=2024.1.0
+
+# Additional Utility Dependencies
+tenacity>=8.3.0,<9.0.0
+requests>=2.32.0
+pyyaml>=6.0.0
+
+# Development and Testing (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Note: If you encounter dependency conflicts during installation,
+# try this alternative installation approach:
+#
+# 1. pip install vision-agent --no-deps
+# 2. pip install -r requirements.txt --no-deps
+# 3. pip install any missing dependencies individually
