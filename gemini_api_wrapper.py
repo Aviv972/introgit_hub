@@ -258,7 +258,8 @@ class GeminiAPIWrapper:
             Exception: If API call fails after processing.
         """
         if not GENAI_AVAILABLE:
-            self.logger.warning("Google Generative AI package not available. Returning mock response.")
+            self.logger.warning(
+                "Google Generative AI package not available. Returning mock response.")
             return {"text": "Mock response - Google AI package not available"}
 
         try:
@@ -275,7 +276,8 @@ class GeminiAPIWrapper:
                             function_call = part['function_call']
                             if 'args' in function_call:
                                 # Transform the args to ensure proper formatting
-                                transformed_args = self.transform_function_call_args(function_call['args'])
+                                transformed_args = self.transform_function_call_args(
+                                    function_call['args'])
                                 processed_part = {
                                     'function_call': {
                                         'name': function_call['name'],
