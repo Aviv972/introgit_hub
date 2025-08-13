@@ -251,7 +251,9 @@ class VisionAgentPatcher:
                 class PatchedGenerativeModel(original_class):
                     def generate_content(self, *args, **kwargs):
                         self.logger.debug("Intercepted GenerativeModel.generate_content")
-                        return self._create_patched_generate_content(super().generate_content)(*args, **kwargs)
+                        return self._create_patched_generate_content(
+                            super().generate_content
+                        )(*args, **kwargs)
 
                 genai.GenerativeModel = PatchedGenerativeModel
                 self.logger.info("Patched google.genai.GenerativeModel")
@@ -506,6 +508,7 @@ if __name__ == "__main__":
     print()
 
     test_patch_functionality()
+
 
 
 
