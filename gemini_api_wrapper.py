@@ -244,7 +244,9 @@ class GeminiAPIWrapper:
             self.logger.error(error_msg)
             raise ValueError(error_msg) from e
 
-    def safe_generate_content(self, model_name: str, contents: List[Dict[str, Any]], **kwargs) -> Any:
+    def safe_generate_content(
+        self, model_name: str, contents: List[Dict[str, Any]], **kwargs
+    ) -> Any:
         """
         Safely generate content using Gemini API with proper error handling.
 
@@ -397,6 +399,7 @@ if __name__ == "__main__":
 
     print("\n" + "=" * 50)
     print("Test completed. Check the output above for results.")
+
 
 
 
