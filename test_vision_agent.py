@@ -524,7 +524,8 @@ def main():
             sys.exit(0)
         else:
             print(
-                f"\n⚠️  Testing completed with issues. ({success_count}/{total_count} tests passed)")
+                f"\n⚠️  Testing completed with issues. "
+                f"({success_count}/{total_count} tests passed)")
             sys.exit(1)
 
     except KeyboardInterrupt:
@@ -537,5 +538,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
