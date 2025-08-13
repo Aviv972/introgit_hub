@@ -140,7 +140,8 @@ class VisionAgentTester:
                 module = __import__(import_path, fromlist=[''])
                 version = getattr(module, '__version__', 'unknown')
                 print(f"✅ {module_name}: {version}")
-                self.test_results['imports'][module_name] = {'status': 'success', 'version': version}
+                self.test_results['imports'][module_name] = {
+                    'status': 'success', 'version': version}
                 success_count += 1
 
             except ImportError as e:
@@ -211,7 +212,8 @@ class VisionAgentTester:
         env_file = Path('.env')
         if env_file.exists():
             print(f"✅ .env file found: {env_file.absolute()}")
-            self.test_results['api_keys']['env_file'] = {'status': 'found', 'path': str(env_file.absolute())}
+            self.test_results['api_keys']['env_file'] = {
+                'status': 'found', 'path': str(env_file.absolute())}
         else:
             print(f"❌ .env file not found in current directory")
             self.test_results['api_keys']['env_file'] = {'status': 'missing'}
@@ -300,7 +302,8 @@ class VisionAgentTester:
             available_functions = [f for f in functions_to_check if hasattr(T, f)]
 
             if available_functions:
-                print(f"✅ Tools module: {len(available_functions)}/{len(functions_to_check)} functions available")
+                print(
+                    f"✅ Tools module: {len(available_functions)}/{len(functions_to_check)} functions available")
                 success_count += 1
             else:
                 print("⚠️  Tools module: No expected functions found")
@@ -388,12 +391,14 @@ class VisionAgentTester:
                 return True
             else:
                 print("❌ Matplotlib integration test failed - file not created")
-                self.test_results['functionality']['integration_test'] = {'status': 'failed', 'error': 'File not created'}
+                self.test_results['functionality']['integration_test'] = {
+                    'status': 'failed', 'error': 'File not created'}
                 return False
 
         except Exception as e:
             print(f"❌ Integration test failed: {e}")
-            self.test_results['functionality']['integration_test'] = {'status': 'failed', 'error': str(e)}
+            self.test_results['functionality']['integration_test'] = {
+                'status': 'failed', 'error': str(e)}
             return False
 
     def generate_summary_report(self):
@@ -511,10 +516,12 @@ def main():
         total_count = len(results)
 
         if success_count >= total_count * 0.7:
-            print(f"\n🎉 Testing completed successfully! ({success_count}/{total_count} tests passed)")
+            print(
+                f"\n🎉 Testing completed successfully! ({success_count}/{total_count} tests passed)")
             sys.exit(0)
         else:
-            print(f"\n⚠️  Testing completed with issues. ({success_count}/{total_count} tests passed)")
+            print(
+                f"\n⚠️  Testing completed with issues. ({success_count}/{total_count} tests passed)")
             sys.exit(1)
 
     except KeyboardInterrupt:

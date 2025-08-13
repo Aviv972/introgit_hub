@@ -151,7 +151,8 @@ class VisionAgentPatcher:
         """
         @wraps(original_method)
         def patched_generate_content(*args, **kwargs):
-            self.logger.debug(f"Intercepted generate_content call with args: {len(args)}, kwargs: {list(kwargs.keys())}")
+            self.logger.debug(
+                f"Intercepted generate_content call with args: {len(args)}, kwargs: {list(kwargs.keys())}")
 
             try:
                 # If we have a wrapper, use it to process the call
@@ -206,7 +207,8 @@ class VisionAgentPatcher:
                             function_call = part['function_call']
                             if 'args' in function_call:
                                 # Use our wrapper to transform the arguments
-                                transformed_args = self.wrapper.transform_function_call_args(function_call['args'])
+                                transformed_args = self.wrapper.transform_function_call_args(
+                                    function_call['args'])
 
                                 processed_part = {
                                     'function_call': {
@@ -215,7 +217,8 @@ class VisionAgentPatcher:
                                     }
                                 }
                                 processed_parts.append(processed_part)
-                                self.logger.debug(f"Processed function call: {function_call['name']}")
+                                self.logger.debug(
+                                    f"Processed function call: {function_call['name']}")
                             else:
                                 processed_parts.append(part)
                         except Exception as e:
@@ -259,7 +262,8 @@ class VisionAgentPatcher:
                         # Patch the models.generate_content method if it exists
                         if hasattr(self, 'models') and hasattr(self.models, 'generate_content'):
                             original_generate = self.models.generate_content
-                            self.models.generate_content = self._create_patched_generate_content(original_generate)
+                            self.models.generate_content = self._create_patched_generate_content(
+                                original_generate)
 
                 genai.Client = PatchedClient
                 self.logger.info("Patched google.genai.Client")
@@ -280,7 +284,8 @@ class VisionAgentPatcher:
 
                 class PatchedGenerativeModel(original_class):
                     def generate_content(self, *args, **kwargs):
-                        patcher.logger.debug("Intercepted google.generativeai.GenerativeModel.generate_content")
+                        patcher.logger.debug(
+                            "Intercepted google.generativeai.GenerativeModel.generate_content")
                         return patcher._create_patched_generate_content(super().generate_content)(*args, **kwargs)
 
                 genai.GenerativeModel = PatchedGenerativeModel
@@ -381,7 +386,8 @@ class VisionAgentPatcher:
             self.logger.info("No patches to remove")
             return
 
-        self.logger.warning("Patch removal not fully implemented - restart Python to remove patches")
+        self.logger.warning(
+            "Patch removal not fully implemented - restart Python to remove patches")
         # Note: Full patch removal is complex due to the nature of monkey patching
         # In practice, users should restart their Python session to remove patches
 

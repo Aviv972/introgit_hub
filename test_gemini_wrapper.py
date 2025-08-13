@@ -480,7 +480,8 @@ def run_comprehensive_tests():
     print(f"Tests run: {result.testsRun}")
     print(f"Failures: {len(result.failures)}")
     print(f"Errors: {len(result.errors)}")
-    print(f"Success rate: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%")
+    print(
+        f"Success rate: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%")
 
     if result.failures:
         print("\n❌ Failures:")
