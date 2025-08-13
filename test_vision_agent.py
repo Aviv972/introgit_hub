@@ -68,7 +68,9 @@ class VisionAgentTester:
             # Platform info
             import platform
             print(f"✅ Platform: {platform.system()} {platform.release()}")
-            self.test_results['environment']['platform'] = f"{platform.system()} {platform.release()}"
+            self.test_results['environment']['platform'] = (
+                f"{platform.system()} {platform.release()}"
+            )
 
             # Working directory
             cwd = os.getcwd()
@@ -534,3 +536,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
