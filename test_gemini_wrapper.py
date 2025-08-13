@@ -481,7 +481,8 @@ def run_comprehensive_tests():
     print(f"Failures: {len(result.failures)}")
     print(f"Errors: {len(result.errors)}")
     print(
-        f"Success rate: {((result.testsRun - len(result.failures) - len(result.errors)) / result.testsRun * 100):.1f}%")
+        f"Success rate: {((result.testsRun - len(result.failures) - len(result.errors)) / "
+        f"result.testsRun * 100):.1f}%")
 
     if result.failures:
         print("\n❌ Failures:")
@@ -560,4 +561,5 @@ if __name__ == "__main__":
     else:
         print("\n⚠️  Some tests failed. Please review the output above.")
         sys.exit(1)
+
 
