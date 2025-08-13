@@ -305,7 +305,8 @@ class VisionAgentTester:
 
             if available_functions:
                 print(
-                    f"✅ Tools module: {len(available_functions)}/{len(functions_to_check)} functions available")
+                    f"✅ Tools module: {len(available_functions)}/"
+                    f"{len(functions_to_check)} functions available")
                 success_count += 1
             else:
                 print("⚠️  Tools module: No expected functions found")
@@ -536,4 +537,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
