@@ -66,16 +66,30 @@ You need to obtain API keys from three providers:
    nano .env
    ```
 
-2. **Uncomment and replace the placeholder values**:
+2. **Replace the placeholder values with your actual API keys**:
    ```bash
-   VISION_AGENT_API_KEY=your-actual-vision-agent-key
-   ANTHROPIC_API_KEY=your-actual-anthropic-key
-   GOOGLE_API_KEY=your-actual-google-key
+   # Update these lines in the .env file with your real keys
+   VISION_AGENT_API_KEY=va_your_actual_vision_agent_key_here
+   ANTHROPIC_API_KEY=sk-ant-your_actual_anthropic_key_here
+   GOOGLE_API_KEY=your_actual_google_key_here
    ```
 
-3. **Load environment variables** (for current session):
+3. **Load environment variables** (choose one method):
+   
+   **Method A - Command line (for current session):**
    ```bash
    export $(cat .env | grep -v '^#' | xargs)
+   ```
+   
+   **Method B - Python script (recommended):**
+   ```python
+   from dotenv import load_dotenv
+   load_dotenv()  # Automatically loads .env file
+   ```
+
+4. **Verify your setup**:
+   ```bash
+   python3 test_vision_agent.py
    ```
 
 ## Quick Start
@@ -152,4 +166,5 @@ If you encounter issues:
 ---
 
 **Note**: This is an exploration project. Some functionality may be limited due to the headless environment and missing system dependencies.
+
 
